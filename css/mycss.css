@@ -280,7 +280,6 @@
 .index-data-ul .weui-media-box img, .width48 {
     width: 0.96rem;
 }
-
 .index-data-ul div.weui-media-box__hd {
     height: auto;
     width: auto;
@@ -418,8 +417,13 @@ div.weui-navbar__item {
 .huiyiTouxiang .bgBlue.active {
     padding: 2px;
     box-shadow: 0 0 15px #52ceff;
+    width: 0.96rem;
+    height: 0.96rem;
+    background: url(../images/loading.gif) no-repeat center center;
 }
-
+.huiyiTouxiang .bgBlue.active img{
+    width: 100%;
+}
 .huiyiTouxiang .bgBlue.isTrue {
     padding: 2px;
     box-shadow: 0 0 15px #F6A623;
