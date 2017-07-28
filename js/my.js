@@ -31,14 +31,30 @@ $("[data-doajishi]").click(function () {
 })
 
 $("[data-model]").click(function () {
-	var modalId=$(this).data("model");
+    var modalId = $(this).data("model");
 	$("#"+modalId).css({opacity: 1,display: 'block'})
 });
-$("[data-model-cols],.weui-mask").click(function () {
+$(document).on('click',"[data-model-cols],.weui-mask",function () {
 	$(".js_dialog").css({opacity: 0,display: 'none'})
 });
 $("[data-tab]").click(function () {
-	var $this=$(this);
-	$this.addClass('active').siblings('[data-tab].active').removeClass("active");
+    var $this = $(this);
+    $this.addClass('active').siblings('[data-tab].active').removeClass("active");
 
-})
+});
+
+$("input").focus(function () {
+    $(".fixed").hide();
+});
+
+function setLoading(text){
+	var aa=''+
+	'<div class="js_dialog zidingyi" id="index-dakai" style="opacity: 1; display: block;">'+
+	'	<div class="weui-mask"></div>'+
+		'<div class="weui-dialog br15">'+
+		'	<p class="fs-18px">'+text+'</p>'+
+	'	</div>'+
+	'</div>';
+	console.log(aa);
+	$("body").append(aa);
+}

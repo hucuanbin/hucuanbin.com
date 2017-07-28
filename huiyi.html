@@ -58,7 +58,7 @@
 			<div class="text-center huiyiTouxiang fs-0">
 				<div class="weui-flex">
 					<div class="weui-flex__item">
-						<div class="bgBlue isTrue">
+						<div class="bgBlue isTrue" data-gourl="huiYiNeiRong.html">
 							<img src="images/touxiang1.jpg" class="width48">
 						</div>
 					</div>
@@ -129,8 +129,9 @@
 			timeOut=setInterval(function(){ //setInterval
 				$this.text(new Date(timeNum).Format("mm:ss"));
 				timeNum-=1000;
-				if(timeNum<=0){
-					$this.prop("disabled",false).parents(".huiYiTop").removeClass('active');
+				if(timeNum<0){
+					$this.prop("disabled",false).text("开始计时").parents(".huiYiTop").removeClass('active');
+					clearInterval(timeOut);
 				}
 			},1000)
 		});
