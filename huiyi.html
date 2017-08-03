@@ -1,4 +1,4 @@
-
+﻿
 <!doctype html>
 <html>
 <head>
@@ -22,7 +22,7 @@
 
 	</style>
 </head>
-<body class="page-group-body">  
+<body class="page-group-body" id="body">  
 	<div class="page-group">
 		<header class="bar bar-nav">
 			<h1 class="page-header-title fs—36">
@@ -58,7 +58,7 @@
 			<div class="text-center huiyiTouxiang fs-0">
 				<div class="weui-flex">
 					<div class="weui-flex__item">
-						<div class="bgBlue isTrue" data-gourl="huiYiNeiRong.html">
+						<div class="bgBlue isTrue" >
 							<img src="images/touxiang1.jpg" class="width48">
 						</div>
 					</div>
@@ -76,7 +76,7 @@
 				<div class="weui-flex">
 					<div class="weui-flex__item">
 						<div class="bgBlue">
-								<img src="images/touxiang4.jpg" class="width48">
+							<img src="images/touxiang4.jpg" class="width48">
 						</div>
 					</div>
 					<div class="weui-flex__item">
@@ -120,6 +120,77 @@
 		</div>
 	</div>
 
+	<!-- 侧滑 -->
+	<div class="page-group ps-abs transition" id="transition" style="left: 100%;">
+		<header class="bar bar-nav" style="left: 100%;">
+			<span class="button-link left huiyinGoLiet" >
+				<span class="iconfont icon-prev"></span>
+			</span>
+			<h1 class="page-header-title fs—36">
+				发言内容
+			</h1>
+		</header>
+		<nav class="bar bar-tab weui-tabbar">
+			<a href="index.html" class="weui-tabbar__item">
+				<span class="weui-tabbar__icon nav-daka active"></span>
+				<p class="weui-tabbar__label">打卡</p>
+			</a>
+			<a href="huiyi.html" class="weui-tabbar__item">
+				<span class="weui-tabbar__icon nav-huiyi"></span>
+				<p class="weui-tabbar__label">会议</p>
+			</a>
+			<a href="renwu.html" class="weui-tabbar__item">
+				<span class="weui-tabbar__icon nav-renwu"></span>
+				<p class="weui-tabbar__label">任务</p>
+			</a>
+			<a href="login.html" class="weui-tabbar__item">
+				<span class="weui-tabbar__icon nav-wode"></span>
+				<p class="weui-tabbar__label">我的</p>
+			</a>
+		</nav>
+		<div class="content">
+			<div class="index-list">
+				<div class="chidao">
+					<ul class="index-data-ul fs-0">
+						<li class="b-b-ee">
+							<a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+								<div class="weui-media-box__hd" >
+									<img  class="weui-media-box__thumb" src="images/touxiang.jpg" alt="">
+								</div>
+								<div class="weui-media-box__bd index-data-li-zhong">
+									<b class="fs-28 color333" >Matthew Sandoval</b>
+									<p class="fs-24 color999">前端工程师</p>
+								</div>
+								<div class="weui-media-box__hd index-data-li-right" >
+									<span class="fs-36px color-3479F7" >1:59</span>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="neirong-index fs-24">
+				<div class="neirong-ul">
+					<label class="index-data-laber">昨日完成</label>
+					<ul class="bg-fff fs-28">
+						<li>1.完成bn项目布局</li>
+						<li>2.整理了下CMS的使用说明文档，单后看到公司域名lian-xin.com已经铜鼓哦备案后，将老域名Wwzlianxin.com301移动新域名</li>
+						<li>3.规划了下接下来要做的预跑模式</li>
+					</ul>
+				</div>
+				<div class="neirong-ul">
+					<label class="index-data-laber">今日完成</label>
+					<ul class="bg-fff fs-28">
+						<li>1.预计完成bn项目网页效果</li>
+						<li>2.与设计师对接新的APP页面</li>
+						<li>3.初步布局sn项目</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 	<script type="text/javascript" src="lib/zepto/zepto.min.js"></script>
 	<script type="text/javascript" src="js/my.js"></script>
 	<script type="text/javascript">
@@ -132,11 +203,82 @@
 				if(timeNum<0){
 					$this.prop("disabled",false).text("开始计时").parents(".huiYiTop").removeClass('active');
 					clearInterval(timeOut);
+					setLoading("胡彬彬发言完毕");
 				}
 			},1000)
 		});
-
+		$(".huiyiTouxiang .bgBlue").click(function(){
+			// location.href="huiYiNeiRong.html"
+			$(".transition,.transition .bar").css("left",0);
+		})
+		$(".huiyinGoLiet").click(function(){
+			$(".transition,.transition .bar").css("left","100%");
+		})
 	</script>
+	<script type="text/javascript">
+		var startX1,
+		startY1,
+		x1, 
+		y1,
+		aboveX1 = 0; 
+		var inner1 = document.getElementById("transition");
+		function touchSatrt(e) {
+			e.preventDefault();
+			var touch = e.touches[0];
+			startX1 = touch.pageX; 
+			startY1=touch.pageY; 
+			$("#transition").removeClass('transition');
+		}
+
+		function touchMove(e) {
+			e.preventDefault();
+			var touch = e.touches[0];
+			x1 = touch.pageX - startX1;
+			y1 = touch.pageY - startY1;
+
+			if(fangxiang(x1,y1)==4){
+				inner1.style.left = aboveX1 + x1 + "px"; 
+			}
+		}
+
+		function touchEnd(e) {
+			e.preventDefault();
+			aboveX1 = parseInt(inner1.style.left);
+			$("#transition").addClass('transition');
+			if(aboveX1){
+				$(".huiyinGoLiet").click();
+				aboveX1=0;
+			}
+		}
+
+		document.getElementById("transition").addEventListener('touchstart', touchSatrt, false);
+		document.getElementById("transition").addEventListener('touchmove', touchMove, false);
+		document.getElementById("transition").addEventListener('touchend', touchEnd, false);
+
+		function getAngle(angx, angy) {
+			return Math.atan2(angy, angx) * 180 / Math.PI;
+		};
+		function fangxiang(angx,angy){
+
+			var angle = getAngle(angx, angy), result =0;
+
+			if (Math.abs(angx) < 2 && Math.abs(angy) < 2) {
+				return result;
+			}
+			if (angle >= -135 && angle <= -45) {
+				result = 1;
+			} else if (angle > 45 && angle < 135) {
+				result = 2;
+			} else if ((angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135)) {
+				result = 3;
+			} else if (angle >= -45 && angle <= 45) {
+				result = 4;
+			}
+
+			return result;
+		}
+	</script>
+
 </script>
 </body>
 </html>

@@ -1,9 +1,9 @@
-﻿
+
 <!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,,maximum-scale=1,user-scalable=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,,maximum-scale=1,user-scalable=no"> 
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <meta name="apple-mobile-web-app-title" content="标题" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -19,16 +19,20 @@
     <script type="text/javascript" src="js/jichu.js"></script>
 
     <style>
+
     </style>
 </head>
-<body class="page-group-body">
+<body class="page-group-body">  
     <div class="page-group">
         <header class="bar bar-nav">
+            <span class="button-link left" data-gourl="renwu.html">
+                <span class="iconfont icon-prev"></span>
+            </span>
             <h1 class="page-header-title fs—36">
                 任务
             </h1>
         </header>
-        <nav class="bar bar-tab weui-tabbar fixed">
+        <nav class="bar bar-tab weui-tabbar">
             <a href="index.html" class="weui-tabbar__item">
                 <span class="weui-tabbar__icon nav-daka"></span>
                 <p class="weui-tabbar__label">打卡</p>
@@ -47,35 +51,9 @@
             </a>
         </nav>
         <div class="content">
-            <!-- 内容 -->
-            <div class="weui-search-bar fs-24" id="searchBar">
-                <form class="weui-search-bar__form">
-                    <div class="weui-search-bar__box">
-                        <i class="weui-icon-search"></i>
-                        <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
-                        <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
-                    </div>
-                    <label class="weui-search-bar__label" id="searchText">
-                        <i class="weui-icon-search"></i>
-                        <span>搜索</span>
-                    </label>
-                </form>
-                <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
-            </div>
             <ul class="index-data-ul fs-0">
                 <li>
-                    <a href="renwuXiangqing.html" class="weui-media-box weui-media-box_appmsg">
-                        <div class="weui-media-box__hd">
-                            <img class="weui-media-box__thumb" src="images/touxiang.jpg" alt="">
-                        </div>
-                        <div class="weui-media-box__bd index-data-li-zhong">
-                            <b class="fs-28 color333">Matthew Sandoval</b>
-                            <p class="fs-24 color999">前端工程师</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="renwuXiangqing.html" class="weui-media-box weui-media-box_appmsg">
+                    <a class="weui-media-box weui-media-box_appmsg">
                         <div class="weui-media-box__hd">
                             <img class="weui-media-box__thumb" src="images/touxiang.jpg" alt="">
                         </div>
@@ -83,23 +61,31 @@
                             <b class="fs-28 color333">Jacob Russell</b>
                             <p class="fs-24 color999">前端工程师</p>
                         </div>
+                        <div class="weui-media-box__hd index-data-li-right" style="padding-right: 5px;" >
+                            <span class="fs-16px color-3479F7"  style="margin-top: 3px">昨日任务</span>
+                            <span class="fs-12px color666"><b>今日完成</b></span>
+                        </div>
+                        <div class="weui-media-box__hd fs-12px text-right" style="margin: 0;" data-gourl="renwuXiangqing1.html"> 
+                            <img src="images/shang.png" style="width: 0.46rem;">
+                        </div>
                     </a>
                 </li>
             </ul>
-
+            <div class="neirong-index fs-24">
+                <div class="neirong-ul">
+                    <label class="index-data-laber">昨日完成</label>
+                    <ul class="bg-fff fs-28">
+                        <li>1.完成bn项目布局</li>
+                        <li>2.整理了下CMS的使用说明文档，单后看到公司域名lian-xin.com已经铜鼓哦备案后，将老域名Wwzlianxin.com301移动新域名</li>
+                        <li>3.规划了下接下来要做的预跑模式</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 
     <script type="text/javascript" src="lib/zepto/zepto.min.js"></script>
     <script type="text/javascript" src="js/my.js"></script>
-    <script>
-        $("#searchBar").click(function () {
-            $(this).addClass("weui-search-bar_focusing");
-            $("#searchInput").focus();
-        })
-        $("#searchInput").blur(function () {
-            $(this).parents("#searchBar").removeClass("weui-search-bar_focusing");
-        })
-    </script>
+
 </body>
 </html>

@@ -1,4 +1,4 @@
-
+﻿
 <!doctype html>
 <html>
 <head>
@@ -16,11 +16,8 @@
 	<link rel="stylesheet" type="text/css" href="css/jichu.css">
 	<link rel="stylesheet" type="text/css" href="css/mycss.css">
 	<link rel="stylesheet" type="text/css" href="css/tupian.css">
+    <link rel="stylesheet" href="lib/rili.css" />
 	<script type="text/javascript" src="js/jichu.js"></script>
-
-	<style>
-
-	</style>
 </head>
 <body class="page-group-body">  
 	<div class="page-group">
@@ -34,7 +31,7 @@
 		</header>
 		<nav class="bar bar-tab weui-tabbar">
 			<a href="index.html" class="weui-tabbar__item">
-				<span class="weui-tabbar__icon nav-daka active"></span>
+				<span class="weui-tabbar__icon nav-daka"></span>
 				<p class="weui-tabbar__label">打卡</p>
 			</a>
 			<a href="huiyi.html" class="weui-tabbar__item">
@@ -46,7 +43,7 @@
 				<p class="weui-tabbar__label">任务</p>
 			</a>
 			<a href="login.html" class="weui-tabbar__item">
-				<span class="weui-tabbar__icon nav-wode"></span>
+				<span class="weui-tabbar__icon nav-wode active"></span>
 				<p class="weui-tabbar__label">我的</p>
 			</a>
 		</nav>
@@ -79,17 +76,18 @@
 				</div>
 				<div id="tab2" class="hide" tab-html>
 					<div class="weui-search-bar fs-24" id="searchBar">
-						<form class="weui-search-bar__form">
-							<div class="weui-search-bar__box">
-								<i class="weui-icon-search"></i>
-								<input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
-								<a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
-							</div>
-							<label class="weui-search-bar__label" id="searchText">
-								<i class="iconfont icon-icon"></i>
-								<span>搜日期</span>
-							</label>
-						</form>
+                        <form class="weui-search-bar__form item-buydate input-group">
+                            <input type="hidden" class="weui-search-bar__input" placeholder="搜索" required="">
+                            <div class="weui-search-bar__box">
+                                <i class="weui-icon-search"></i>
+                                <input type="text" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
+                                <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+                            </div>
+                            <label class="weui-search-bar__label" id="searchText">
+                                <i class="iconfont icon-icon"></i>
+                                <span>搜日期</span>
+                            </label>
+                        </form>
 						<a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
 					</div>
 					<div class="neirong-index fs-24">
@@ -118,6 +116,10 @@
 	<script type="text/javascript" src="lib/jq/jquery.min.js"></script>
 	<script type="text/javascript" src="js/my.js"></script>
 
+    <script src="lib/rili.js"></script>
+    <script>
+        $('.item-buydate').mdater();
+    </script>
 	<script type="text/javascript">
 		$("[data-tab]").click(function () {
 			var index=$(this).index(),tabId=$(this).data('tab');

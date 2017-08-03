@@ -17,6 +17,9 @@ textarea{
 .text-center{
 	text-align: center;
 }
+ul{
+	list-style: none
+}
 .right{
 	float:right;
 }
